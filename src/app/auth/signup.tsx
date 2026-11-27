@@ -1,11 +1,17 @@
 "use client";
 
-import FlexWrapper from "@/components/ui/common/FlexWrapper";
-import InputField from "./components/InputField";
-import { FieldDescription, FieldLegend, FieldSet } from "@/components/ui/field";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import FlexWrapper from "@/components/ui/common/FlexWrapper";
+import { FieldDescription, FieldLegend, FieldSet } from "@/components/ui/field";
+import InputField from "./components/InputField";
+import CommonButton from "@/components/ui/common/CommonButton";
 
 function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   return (
     <FlexWrapper className="items-center justify-center mt-[25dvh] flex-col min-w-full">
       <FieldSet className="w-full items-center">
@@ -15,13 +21,26 @@ function SignUp() {
         <FieldDescription className="text-center text-[16px]!">
           Welcome! Sign up to continue
         </FieldDescription>
-        <InputField placeholder="Email" type="email" />
-        <InputField placeholder="Password" type="password" />
-        <InputField placeholder="Confirm Password" type="password" />
+        <InputField
+          placeholder="Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.currentTarget.value)}
+        />
+        <InputField
+          placeholder="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.currentTarget.value)}
+        />
+        <InputField
+          placeholder="Confirm Password"
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.currentTarget.value)}
+        />
         <FlexWrapper className="flex-col items-center gap-3">
-          <Button className="rounded-full p-5 w-40 text-xs bg-button-primary">
-            CREATE ACCOUNT
-          </Button>
+          <CommonButton>SIGN UP</CommonButton>
           <Button className="text-xs p-0" variant="ghost">
             I HAVE AN ACCOUNT
           </Button>

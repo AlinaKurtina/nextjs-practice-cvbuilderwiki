@@ -1,8 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import FlexWrapper from "@/components/ui/common/FlexWrapper";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState } from "react";
 import SignIn from "./signin";
 import SignUp from "./signup";
 
